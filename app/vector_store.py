@@ -4,7 +4,7 @@ import threading
 from qdrant_client import QdrantClient
 
 # pyrefly: ignore [missing-import]
-from qdrant_client.models import Distance, VectorParams
+from qdrant_client.models import Distance, VectorParams, PayloadSchemaType
 # pyrefly: ignore [missing-import]
 from langchain_qdrant import QdrantVectorStore
 
@@ -60,10 +60,29 @@ def get_qdrant_client() -> QdrantClient:
                         raise RuntimeError(err_msg) from e
     return _qdrant_client
 
+def ensure_payload_indices() -> None:
+    """
+    Ensures required payload indices (such as metadata.filename and metadata.source) exist in Qdrant.
+    This prevents HTTP 400 'Index required but not found' errors during filtered vector searches.
+    """
+    client = get_qdrant_client()
+    fields = ["metadata.filename", "metadata.source", "metadata.file_name", "filename", "source"]
+    for field in fields:
+        try:
+            client.create_payload_index(
+                collection_name=settings.COLLECTION_NAME,
+                field_name=field,
+                field_schema=PayloadSchemaType.KEYWORD
+            )
+            logger.info(f"Ensured payload index for field '{field}'.")
+        except Exception as e:
+            logger.debug(f"Payload index for field '{field}' skipped or existing: {e}")
+
 def create_collection_if_not_exists() -> bool:
     """
     Checks if the configured collection exists in Qdrant. If it does not exist,
     creates a new collection configured for 384-dimension vectors with COSINE distance.
+    Also guarantees that payload indices are present.
 
     Returns:
         bool: True if the collection was created, False if it already existed.
@@ -71,17 +90,20 @@ def create_collection_if_not_exists() -> bool:
     client = get_qdrant_client()
     
     logger.info(f"Checking if Qdrant collection '{settings.COLLECTION_NAME}' exists...")
-    if client.collection_exists(collection_name=settings.COLLECTION_NAME):
+    created = False
+    if not client.collection_exists(collection_name=settings.COLLECTION_NAME):
+        logger.info(f"Collection '{settings.COLLECTION_NAME}' does not exist. Creating collection...")
+        client.create_collection(
+            collection_name=settings.COLLECTION_NAME,
+            vectors_config=VectorParams(size=384, distance=Distance.COSINE)
+        )
+        logger.info(f"Collection '{settings.COLLECTION_NAME}' created successfully.")
+        created = True
+    else:
         logger.info(f"Collection '{settings.COLLECTION_NAME}' already exists.")
-        return False
 
-    logger.info(f"Collection '{settings.COLLECTION_NAME}' does not exist. Creating collection...")
-    client.create_collection(
-        collection_name=settings.COLLECTION_NAME,
-        vectors_config=VectorParams(size=384, distance=Distance.COSINE)
-    )
-    logger.info(f"Collection '{settings.COLLECTION_NAME}' created successfully.")
-    return True
+    ensure_payload_indices()
+    return created
 
 def get_vector_store(device: str = None) -> QdrantVectorStore:
     """
@@ -103,7 +125,7 @@ def get_vector_store(device: str = None) -> QdrantVectorStore:
     if device not in _vector_stores:
         with _store_lock:
             if device not in _vector_stores:
-                # Guarantee the collection exists before initializing the vector store wrapper
+                # Guarantee the collection exists & payload indices are ready before initializing store
                 create_collection_if_not_exists()
 
                 client = get_qdrant_client()
