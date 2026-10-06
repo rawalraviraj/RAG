@@ -55,11 +55,14 @@ def load_pdf(pdf_path: str) -> List[Document]:
             )
             parsed_docs = parser.load_data(str(path))
             
-            # Convert LlamaIndex docs to LangChain docs
-            return [
-                Document(page_content=doc.text, metadata={"page": i, "source": path.name}) 
-                for i, doc in enumerate(parsed_docs)
-            ]
+            if parsed_docs and any(doc.text.strip() for doc in parsed_docs):
+                # Convert LlamaIndex docs to LangChain docs
+                return [
+                    Document(page_content=doc.text, metadata={"page": i, "source": path.name}) 
+                    for i, doc in enumerate(parsed_docs)
+                ]
+            else:
+                logger.warning(f"LlamaParse returned 0 or empty documents for {pdf_path}. Falling back to PyPDFLoader.")
         except Exception as e:
             logger.error(f"LlamaParse failed, falling back to PyPDFLoader: {e}")
             

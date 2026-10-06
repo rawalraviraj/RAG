@@ -134,21 +134,23 @@ def ingest_single_pdf(pdf_path: Path, status_callback: Optional[Callable[[str, f
 
     if filename in registry:
         old_hash = registry[filename].get("hash")
-        if old_hash == current_hash:
-            logger.info(f"File '{filename}' is already indexed (hash match). Skipping re-embedding.")
+        cached_chunks = registry[filename].get("chunks", 0)
+        if old_hash == current_hash and cached_chunks > 0:
+            logger.info(f"File '{filename}' is already indexed ({cached_chunks} chunks). Skipping re-embedding.")
             if status_callback:
                 status_callback("⚡ Loaded from Cache", 1.00, f"File '{filename}' is ready instantly from cache!")
-            return registry[filename].get("chunks", 0), False
+            return cached_chunks, False
 
     # Process and index new or updated file
     chunks, pages_count = process_pdf(pdf_path, status_callback=status_callback)
     num_chunks = index_pdf(pdf_path, chunks, status_callback=status_callback)
     
-    registry[filename] = {
-        "hash": current_hash,
-        "chunks": num_chunks
-    }
-    save_index_registry(registry)
+    if num_chunks > 0:
+        registry[filename] = {
+            "hash": current_hash,
+            "chunks": num_chunks
+        }
+        save_index_registry(registry)
     return num_chunks, True
 
 def run_auto_ingestion() -> Dict[str, Any]:
