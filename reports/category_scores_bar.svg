@@ -1,0 +1,53 @@
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#0d1117" rx="8"/>
+  <text x="15" y="30" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="14" font-weight="bold">Pipeline Layer Accuracies</text>
+  
+  <!-- Y Axis line -->
+  <line x1="120" y1="50" x2="120" y2="260" stroke="#30363d" stroke-width="1.5"/>
+  
+  <!-- Bars -->
+  
+    <rect x="120" y="59" width="294" height="24" fill="#58a6ff" rx="3"/>
+    <text x="422" y="75" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">84.2%</text>
+        
+
+    <rect x="120" y="92" width="294" height="24" fill="#58a6ff" rx="3"/>
+    <text x="422" y="108" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">84.2%</text>
+        
+
+    <rect x="120" y="125" width="294" height="24" fill="#58a6ff" rx="3"/>
+    <text x="422" y="141" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">84.2%</text>
+        
+
+    <rect x="120" y="158" width="350" height="24" fill="#58a6ff" rx="3"/>
+    <text x="478" y="174" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">100.0%</text>
+        
+
+    <rect x="120" y="191" width="294" height="24" fill="#58a6ff" rx="3"/>
+    <text x="422" y="207" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">84.2%</text>
+        
+
+    <rect x="120" y="224" width="350" height="24" fill="#58a6ff" rx="3"/>
+    <text x="478" y="240" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">100.0%</text>
+        
+  
+  <!-- Labels -->
+  
+    <text x="110" y="75" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Intent</text>
+        
+
+    <text x="110" y="108" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Complexity</text>
+        
+
+    <text x="110" y="141" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Routing</text>
+        
+
+    <text x="110" y="174" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Citations</text>
+        
+
+    <text x="110" y="207" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Answers</text>
+        
+
+    <text x="110" y="240" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Memory</text>
+        
+</svg>

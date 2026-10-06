@@ -1,0 +1,39 @@
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#0d1117" rx="8"/>
+  <text x="15" y="30" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="14" font-weight="bold">Avg Latency Factor (ms/100)</text>
+  
+  <!-- Y Axis line -->
+  <line x1="120" y1="50" x2="120" y2="260" stroke="#30363d" stroke-width="1.5"/>
+  
+  <!-- Bars -->
+  
+    <rect x="120" y="68" width="300" height="30" fill="#bc8cff" rx="3"/>
+    <text x="428" y="87" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">85.9%</text>
+        
+
+    <rect x="120" y="116" width="350" height="30" fill="#bc8cff" rx="3"/>
+    <text x="478" y="135" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">100.0%</text>
+        
+
+    <rect x="120" y="164" width="350" height="30" fill="#bc8cff" rx="3"/>
+    <text x="478" y="183" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">100.0%</text>
+        
+
+    <rect x="120" y="212" width="350" height="30" fill="#bc8cff" rx="3"/>
+    <text x="478" y="231" fill="#c9d1d9" font-family="Segoe UI, Arial" font-size="11" font-weight="bold">100.0%</text>
+        
+  
+  <!-- Labels -->
+  
+    <text x="110" y="87" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Simple</text>
+        
+
+    <text x="110" y="135" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Medium</text>
+        
+
+    <text x="110" y="183" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Complex</text>
+        
+
+    <text x="110" y="231" fill="#8b949e" font-family="Segoe UI, Arial" font-size="11" text-anchor="end">Avg Latency</text>
+        
+</svg>

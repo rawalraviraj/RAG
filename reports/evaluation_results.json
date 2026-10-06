@@ -1,0 +1,603 @@
+[
+  {
+    "query": "What is the medical insurance amount?",
+    "resolved_query": "What is the medical insurance amount?",
+    "category": "lookup",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.6481481481481481,
+    "confidence": 1.0,
+    "latency_ms": 27409.990072250366,
+    "answer": "Rs. 5,00,000 [1].",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Keyword missing in answer. Expected keyword: 'medical insurance'",
+    "suggested_fix": "Verify retrieved document chunks contain the target answers."
+  },
+  {
+    "query": "How many paid leaves are there?",
+    "resolved_query": "How many paid leaves are there?",
+    "category": "lookup",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "MEDIUM",
+    "expected_routed": [
+      "HR_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.7884615384615384,
+    "confidence": 0.9564569411094607,
+    "latency_ms": 9559.807538986206,
+    "answer": "18 paid leaves annually [1].",
+    "references": "[1] HR_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "What is the travel reimbursement limit?",
+    "resolved_query": "What is the travel reimbursement limit?",
+    "category": "lookup",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Finance_Policy.pdf"
+    ],
+    "actual_routed": [
+      "Finance_Policy.pdf",
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 3,
+    "compressed_chunks_count": 3,
+    "compression_ratio": 0.771551724137931,
+    "confidence": 0.868545006980774,
+    "latency_ms": 3246.6986179351807,
+    "answer": "Rs. 25,000 per year [1].",
+    "references": "[1] Finance_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [
+      "[2]",
+      "[3]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Keyword missing in answer. Expected keyword: 'travel'",
+    "suggested_fix": "Verify retrieved document chunks contain the target answers."
+  },
+  {
+    "query": "What is the internet reimbursement?",
+    "resolved_query": "What is the internet reimbursement?",
+    "category": "lookup",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Finance_Policy.pdf"
+    ],
+    "actual_routed": [
+      "Finance_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 2,
+    "compressed_chunks_count": 2,
+    "compression_ratio": 0.328125,
+    "confidence": 1.0,
+    "latency_ms": 1574.1512775421143,
+    "answer": "Internet reimbursement is Rs. 1,500 per month. [1]",
+    "references": "[1] Finance_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [
+      "[2]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "Compare leave policy and insurance policy.",
+    "resolved_query": "Compare leave policy and insurance policy.",
+    "category": "comparison",
+    "expected_intent": "COMPARISON",
+    "predicted_intent": "COMPARISON",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 2,
+    "compressed_chunks_count": 2,
+    "compression_ratio": 0.0,
+    "confidence": 1.0,
+    "latency_ms": 2824.280023574829,
+    "answer": "| **Policy** | **Leave Policy** | **Insurance Policy** |\n| --- | --- | --- |\n| **Annual Leaves** | 18 paid leaves annually [2] | No information available |\n| **Carry Forward** | Unused paid leaves can be carried forward up to 10 days [2] | No information available |\n| **Family Coverage** | No information available | Family coverage includes employee, spouse, and up to two children [1] |\n| **Parental Coverage** | No information available | Parents are not covered [1] |\n| **Dental Coverage** | No information available | Dental treatment is covered [1] |\n| **Vision Coverage** | No information available | Vision insurance is included [1] |\n| **Medical Coverage** | No information available | Medical insurance coverage: Rs. 5,00,000 [1] |\n| **Work from Home** | Employees may work from home up to 2 days per week with manager approval [2] | No information available |",
+    "references": "[1] Insurance.pdf (Page 1)\n[2] HR_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]",
+      "[2]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "Compare HR and Finance policies.",
+    "resolved_query": "Compare HR and Finance policies.",
+    "category": "comparison",
+    "expected_intent": "COMPARISON",
+    "predicted_intent": "COMPARISON",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf",
+      "Finance_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf",
+      "Finance_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 2,
+    "compressed_chunks_count": 2,
+    "compression_ratio": -0.5280898876404494,
+    "confidence": 0.9755481501162905,
+    "latency_ms": 15054.840803146362,
+    "answer": "| **Policy Category** | **HR Policy** | **Finance Policy** |\n| --- | --- | --- |\n| **Paid Leaves** | Employees receive 18 paid leaves annually. Unused paid leaves can be carried forward up to 10 days. | No information available |\n| **Work From Home** | Employees may work from home up to 2 days per week with manager approval. | No information available |\n| **Office Timings** | Office timings are 9:30 AM to 6:30 PM. Flexible arrival between 8:30 AM and 10:00 AM is allowed provided employees complete eight working hours. | No information available |\n| **Salary Crediting** | No information available | Salary is credited on the last working day of every month. [2] |\n| **Annual Performance Bonus** | No information available | Annual performance bonus is 10% of base salary. [2] |\n| **Travel Reimbursement** | No information available | Travel reimbursement limit is Rs. 25,000 per year. [2] |\n| **Internet Reimbursement** | No information available | Internet reimbursement is Rs. 1,500 per month. [2] |\n| **Meal Expenses Reimbursement** | No information available | Meal expenses during approved business travel are reimbursed. [2] |\n\nNote: Since there is no direct comparison between HR and Finance policies in the provided document chunk, the comparison table highlights the differences between the two policies.",
+    "references": "[2] Finance_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[2]"
+    ],
+    "ignored_citations": [
+      "[1]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "Summarize HR Policy.",
+    "resolved_query": "Summarize HR Policy.",
+    "category": "summary",
+    "expected_intent": "SUMMARY",
+    "predicted_intent": "SUMMARY",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.09615384615384616,
+    "confidence": 0.9306394552590874,
+    "latency_ms": 16222.870826721191,
+    "answer": "**Summary of HR Policy**\n\n* **Office Timings**: 9:30 AM to 6:30 PM, with flexible arrival between 8:30 AM and 10:00 AM [1].\n* **Paid Leaves**: 18 days annually, which can be carried forward up to 10 days [1].\n* **Work From Home**: up to 2 days per week with manager approval [1].\n* **Dress Code**: Business casual [1].\n\n**References:**\n[1] HR_Policy.pdf (Page 1)",
+    "references": "[1] HR_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "Summarize Finance Policy.",
+    "resolved_query": "Summarize Finance Policy.",
+    "category": "summary",
+    "expected_intent": "SUMMARY",
+    "predicted_intent": "SUMMARY",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "Finance_Policy.pdf"
+    ],
+    "actual_routed": [
+      "Finance_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": -0.14864864864864866,
+    "confidence": 0.8854529648734598,
+    "latency_ms": 18352.936267852783,
+    "answer": "**Finance Policy Summary**\n\n- **Salary Crediting**: Salary is credited on the last working day of every month [1].\n- **Annual Performance Bonus**: 10% of base salary is given as an annual performance bonus.\n- **Travel Reimbursement**: \n  - Travel reimbursement limit is Rs. 25,000 per year.\n  - Meal expenses during approved business travel are reimbursed.\n- **Internet Reimbursement**: Rs. 1,500 per month is reimbursed for internet expenses.\n\n**References:**\n[1] Finance_Policy.pdf (Page 1)",
+    "references": "[1] Finance_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "List all employee benefits.",
+    "resolved_query": "List all employee benefits.",
+    "category": "list",
+    "expected_intent": "LIST",
+    "predicted_intent": "LIST",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 2,
+    "compressed_chunks_count": 2,
+    "compression_ratio": 0.15822784810126583,
+    "confidence": 0.8820569689645975,
+    "latency_ms": 1522121.2449073792,
+    "answer": "* 18 paid leaves annually\n* Up to 10 days of unused paid leaves can be carried forward\n* Work from home up to 2 days per week with manager approval\n* Medical insurance coverage: Rs. 5,00,000\n* Dental treatment is covered\n* Vision insurance is included\n* Family coverage includes:\n  * Employee\n  * Spouse\n  * Up to two children\n  * Excludes parents",
+    "references": "No references available.",
+    "used_citations": [],
+    "ignored_citations": [
+      "[1]",
+      "[2]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (1522121ms) exceeded threshold (35000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "List all leave types.",
+    "resolved_query": "List all leave types.",
+    "category": "list",
+    "expected_intent": "LIST",
+    "predicted_intent": "LIST",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.5865384615384616,
+    "confidence": 0.8656341688000823,
+    "latency_ms": 2693.6633586883545,
+    "answer": "\u2022 Paid Leaves\n\u2022 Work From Home",
+    "references": "No references available.",
+    "used_citations": [],
+    "ignored_citations": [
+      "[1]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Keyword missing in answer. Expected keyword: '18'",
+    "suggested_fix": "Verify retrieved document chunks contain the target answers."
+  },
+  {
+    "query": "Does insurance include dental?",
+    "resolved_query": "Does insurance include dental?",
+    "category": "yes_no",
+    "expected_intent": "YES_NO",
+    "predicted_intent": "COMPARISON",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.6666666666666666,
+    "confidence": 0.9452560475972897,
+    "latency_ms": 1345.6363677978516,
+    "answer": "| **Question** | **Answer** |\n| --- | --- |\n| Does insurance include dental? | **Yes** |\n\nReasoning: According to Document Chunk 1 in Insurance.pdf [1], dental treatment is covered.",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "Can unused leave be carried forward?",
+    "resolved_query": "Can unused leave be carried forward?",
+    "category": "yes_no",
+    "expected_intent": "YES_NO",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.875,
+    "confidence": 0.9395238562491931,
+    "latency_ms": 1668.776273727417,
+    "answer": "Yes, unused paid leaves can be carried forward up to 10 days [1].",
+    "references": "[1] HR_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "Can spouse be covered?",
+    "resolved_query": "Can spouse be covered?",
+    "category": "yes_no",
+    "expected_intent": "YES_NO",
+    "predicted_intent": "YES_NO",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.7962962962962963,
+    "confidence": 0.9781769041689884,
+    "latency_ms": 1070.8673000335693,
+    "answer": "Yes, spouse can be covered according to the provided information [1].",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "What is the medical insurance amount?",
+    "resolved_query": "What is the medical insurance amount?",
+    "category": "custom",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.7962962962962963,
+    "confidence": 0.9747520902429675,
+    "latency_ms": 7493.478775024414,
+    "answer": "Rs. 5,00,000 [1]",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  },
+  {
+    "query": "Does it include dental?",
+    "resolved_query": "Does it include dental?",
+    "category": "custom",
+    "expected_intent": "YES_NO",
+    "predicted_intent": "COMPARISON",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.6666666666666666,
+    "confidence": 0.8134530567169552,
+    "latency_ms": 11657.61661529541,
+    "answer": "| **Question** | **Answer** |\n| --- | --- |\n| Does it include dental? | **Yes** [1] |\n\n[1] Document Chunk 1 | Source: Insurance.pdf (Page 1)",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (11658ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "Can my family be covered?",
+    "resolved_query": "Can my family be covered?",
+    "category": "custom",
+    "expected_intent": "YES_NO",
+    "predicted_intent": "YES_NO",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": -0.018518518518518517,
+    "confidence": 1.0,
+    "latency_ms": 15315.867185592651,
+    "answer": "Yes, your family can be covered, as the policy includes coverage for your spouse and up to two children.",
+    "references": "No references available.",
+    "used_citations": [],
+    "ignored_citations": [
+      "[1]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (15316ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "What is the medical insurance amount?",
+    "resolved_query": "What is the medical insurance amount?",
+    "category": "custom",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.6481481481481481,
+    "confidence": 1.0,
+    "latency_ms": 13110.889673233032,
+    "answer": "Rs. 5,00,000 [1].",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (13111ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "What is the leave policy?",
+    "resolved_query": "What is the leave policy?",
+    "category": "custom",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "MEDIUM",
+    "expected_routed": [
+      "HR_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.7403846153846154,
+    "confidence": 0.698165977241925,
+    "latency_ms": 37954.50758934021,
+    "answer": "Employees receive 18 paid leaves annually, and unused paid leaves can be carried forward up to 10 days [1].",
+    "references": "[1] HR_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (37955ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "What is the travel reimbursement limit?",
+    "resolved_query": "What is the travel reimbursement limit?",
+    "category": "custom",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Finance_Policy.pdf"
+    ],
+    "actual_routed": [
+      "Finance_Policy.pdf",
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 3,
+    "compressed_chunks_count": 3,
+    "compression_ratio": 0.771551724137931,
+    "confidence": 0.868545006980774,
+    "latency_ms": 3690.6979084014893,
+    "answer": "Rs. 25,000 per year [1].",
+    "references": "[1] Finance_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [
+      "[2]",
+      "[3]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": true,
+    "reason": ""
+  }
+]

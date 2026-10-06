@@ -1,0 +1,22 @@
+{
+  "Finance_Policy.pdf": {
+    "hash": "ba712c524b8bb46eaef9466b2ded5c04e022f0d4211076cd4d06712dfd7d2946",
+    "chunks": 1
+  },
+  "HR_Policy.pdf": {
+    "hash": "032c6653d273e40615fe7f2eb904a8afe6f635167b33840982b9ac233bedf9bb",
+    "chunks": 1
+  },
+  "Insurance.pdf": {
+    "hash": "d541192569a353f03a5d64378299033d2de79e5e31e2f41b466cd6de2743d04b",
+    "chunks": 1
+  },
+  "IT_Security.pdf": {
+    "hash": "b4ed2fbd3b59fb2cd43e6be675726e4a369374f0ffe29b1cec2cb498723814fd",
+    "chunks": 1
+  },
+  "Python_Guide.pdf": {
+    "hash": "f89763a70dc182f24aba2a2131a05c8c01eb87a361821934ed446031c940c408",
+    "chunks": 1
+  }
+}

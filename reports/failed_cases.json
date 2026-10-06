@@ -1,0 +1,258 @@
+[
+  {
+    "query": "What is the medical insurance amount?",
+    "resolved_query": "What is the medical insurance amount?",
+    "category": "lookup",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.6481481481481481,
+    "confidence": 1.0,
+    "latency_ms": 27409.990072250366,
+    "answer": "Rs. 5,00,000 [1].",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Keyword missing in answer. Expected keyword: 'medical insurance'",
+    "suggested_fix": "Verify retrieved document chunks contain the target answers."
+  },
+  {
+    "query": "What is the travel reimbursement limit?",
+    "resolved_query": "What is the travel reimbursement limit?",
+    "category": "lookup",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Finance_Policy.pdf"
+    ],
+    "actual_routed": [
+      "Finance_Policy.pdf",
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 3,
+    "compressed_chunks_count": 3,
+    "compression_ratio": 0.771551724137931,
+    "confidence": 0.868545006980774,
+    "latency_ms": 3246.6986179351807,
+    "answer": "Rs. 25,000 per year [1].",
+    "references": "[1] Finance_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [
+      "[2]",
+      "[3]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Keyword missing in answer. Expected keyword: 'travel'",
+    "suggested_fix": "Verify retrieved document chunks contain the target answers."
+  },
+  {
+    "query": "List all employee benefits.",
+    "resolved_query": "List all employee benefits.",
+    "category": "list",
+    "expected_intent": "LIST",
+    "predicted_intent": "LIST",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf",
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 2,
+    "compressed_chunks_count": 2,
+    "compression_ratio": 0.15822784810126583,
+    "confidence": 0.8820569689645975,
+    "latency_ms": 1522121.2449073792,
+    "answer": "* 18 paid leaves annually\n* Up to 10 days of unused paid leaves can be carried forward\n* Work from home up to 2 days per week with manager approval\n* Medical insurance coverage: Rs. 5,00,000\n* Dental treatment is covered\n* Vision insurance is included\n* Family coverage includes:\n  * Employee\n  * Spouse\n  * Up to two children\n  * Excludes parents",
+    "references": "No references available.",
+    "used_citations": [],
+    "ignored_citations": [
+      "[1]",
+      "[2]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (1522121ms) exceeded threshold (35000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "List all leave types.",
+    "resolved_query": "List all leave types.",
+    "category": "list",
+    "expected_intent": "LIST",
+    "predicted_intent": "LIST",
+    "expected_complexity": "COMPLEX",
+    "predicted_complexity": "COMPLEX",
+    "expected_routed": [
+      "HR_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.5865384615384616,
+    "confidence": 0.8656341688000823,
+    "latency_ms": 2693.6633586883545,
+    "answer": "\u2022 Paid Leaves\n\u2022 Work From Home",
+    "references": "No references available.",
+    "used_citations": [],
+    "ignored_citations": [
+      "[1]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Keyword missing in answer. Expected keyword: '18'",
+    "suggested_fix": "Verify retrieved document chunks contain the target answers."
+  },
+  {
+    "query": "Does it include dental?",
+    "resolved_query": "Does it include dental?",
+    "category": "custom",
+    "expected_intent": "YES_NO",
+    "predicted_intent": "COMPARISON",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.6666666666666666,
+    "confidence": 0.8134530567169552,
+    "latency_ms": 11657.61661529541,
+    "answer": "| **Question** | **Answer** |\n| --- | --- |\n| Does it include dental? | **Yes** [1] |\n\n[1] Document Chunk 1 | Source: Insurance.pdf (Page 1)",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (11658ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "Can my family be covered?",
+    "resolved_query": "Can my family be covered?",
+    "category": "custom",
+    "expected_intent": "YES_NO",
+    "predicted_intent": "YES_NO",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": -0.018518518518518517,
+    "confidence": 1.0,
+    "latency_ms": 15315.867185592651,
+    "answer": "Yes, your family can be covered, as the policy includes coverage for your spouse and up to two children.",
+    "references": "No references available.",
+    "used_citations": [],
+    "ignored_citations": [
+      "[1]"
+    ],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (15316ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "What is the medical insurance amount?",
+    "resolved_query": "What is the medical insurance amount?",
+    "category": "custom",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "SIMPLE",
+    "expected_routed": [
+      "Insurance.pdf"
+    ],
+    "actual_routed": [
+      "Insurance.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.6481481481481481,
+    "confidence": 1.0,
+    "latency_ms": 13110.889673233032,
+    "answer": "Rs. 5,00,000 [1].",
+    "references": "[1] Insurance.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (13111ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  },
+  {
+    "query": "What is the leave policy?",
+    "resolved_query": "What is the leave policy?",
+    "category": "custom",
+    "expected_intent": "FACT_LOOKUP",
+    "predicted_intent": "FACT_LOOKUP",
+    "expected_complexity": "SIMPLE",
+    "predicted_complexity": "MEDIUM",
+    "expected_routed": [
+      "HR_Policy.pdf"
+    ],
+    "actual_routed": [
+      "HR_Policy.pdf"
+    ],
+    "retrieved_chunks_count": 1,
+    "compressed_chunks_count": 1,
+    "compression_ratio": 0.7403846153846154,
+    "confidence": 0.698165977241925,
+    "latency_ms": 37954.50758934021,
+    "answer": "Employees receive 18 paid leaves annually, and unused paid leaves can be carried forward up to 10 days [1].",
+    "references": "[1] HR_Policy.pdf (Page 1)",
+    "used_citations": [
+      "[1]"
+    ],
+    "ignored_citations": [],
+    "verified": true,
+    "unsupported_sentences": [],
+    "passed": false,
+    "reason": "Latency (37955ms) exceeded threshold (10000ms).",
+    "suggested_fix": "Retrieve or generation calls took too long. Check Groq rate limits or cache models locally."
+  }
+]
