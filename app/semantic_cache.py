@@ -73,7 +73,7 @@ class SemanticCache:
             }
             if settings.REDIS_PASSWORD:
                 kwargs["password"] = settings.REDIS_PASSWORD
-            if settings.REDIS_SSL:
+            if settings.REDIS_SSL or "upstash.io" in settings.REDIS_HOST.lower():
                 kwargs["ssl"] = True
                 kwargs["ssl_cert_reqs"] = None
 
