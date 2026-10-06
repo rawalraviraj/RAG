@@ -3,10 +3,6 @@ import logging
 import torch
 from typing import List, Tuple
 
-# Guarantee Hugging Face operates strictly offline using cached weights
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
-
 # pyrefly: ignore [missing-import]
 from langchain_core.documents import Document
 # pyrefly: ignore [missing-import]

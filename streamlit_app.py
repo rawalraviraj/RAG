@@ -1,7 +1,5 @@
 import os
 import time
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 import streamlit as st
 import re

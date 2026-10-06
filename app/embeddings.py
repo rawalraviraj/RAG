@@ -3,10 +3,6 @@ import logging
 import torch
 from typing import List
 
-# Guarantee Hugging Face operates strictly offline using cached weights
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
-
 from app.config import settings
 
 # Set up logger for the embeddings module
