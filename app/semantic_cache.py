@@ -64,13 +64,20 @@ class SemanticCache:
             return
 
         try:
-            self.redis_client = redis.Redis(
-                host=settings.REDIS_HOST,
-                port=settings.REDIS_PORT,
-                db=settings.REDIS_DB,
-                decode_responses=True,
-                socket_timeout=2.0
-            )
+            kwargs = {
+                "host": settings.REDIS_HOST,
+                "port": settings.REDIS_PORT,
+                "db": settings.REDIS_DB,
+                "decode_responses": True,
+                "socket_timeout": 3.0
+            }
+            if settings.REDIS_PASSWORD:
+                kwargs["password"] = settings.REDIS_PASSWORD
+            if settings.REDIS_SSL:
+                kwargs["ssl"] = True
+                kwargs["ssl_cert_reqs"] = None
+
+            self.redis_client = redis.Redis(**kwargs)
             self.redis_client.ping()
             logger.info(f"Connected to Redis Semantic Cache at {settings.REDIS_HOST}:{settings.REDIS_PORT}")
         except Exception as e:

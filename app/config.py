@@ -31,6 +31,8 @@ class Settings(BaseSettings):
 
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
+    REDIS_PASSWORD: str | None = None
+    REDIS_SSL: bool = False
     REDIS_DB: int = 0
     REDIS_TTL: int = 86400  # 24 hours
     SEMANTIC_CACHE_THRESHOLD: float = 0.88
