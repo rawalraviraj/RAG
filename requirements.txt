@@ -2,6 +2,7 @@ fastapi
 uvicorn[standard]
 
 torch
+torchvision
 
 langchain
 langchain-community
@@ -31,6 +32,4 @@ streamlit
 pytest
 llama-parse
 nest-asyncio
-ragas
-datasets
 redis
